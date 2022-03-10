@@ -12,6 +12,8 @@ class ApiExceptionController {
 
         if (id == "ex") throw RuntimeException("bad user")
 
+        if (id == "bad") throw IllegalArgumentException("illegal argument!!")
+
         return MemberDto(id, "hello $id")
     }
 }
