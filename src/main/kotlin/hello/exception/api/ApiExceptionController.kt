@@ -5,6 +5,7 @@ import hello.exception.exception.UserException
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.server.ResponseStatusException
 
@@ -32,6 +33,9 @@ class ApiExceptionController {
     fun responseStatusEx2() {
         throw ResponseStatusException(HttpStatus.NOT_FOUND, "잘못된 에러!", IllegalArgumentException())
     }
+
+    @GetMapping("/api/default-handler-ex")
+    fun defaultException(@RequestParam data: Int): String = "ok"
 }
 
 data class MemberDto(
